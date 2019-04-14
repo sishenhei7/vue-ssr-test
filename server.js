@@ -48,7 +48,7 @@ if (isDev) {
   // tags for any async chunks used during render, avoiding waterfall requests.
   const clientManifest = require('./dist/vue-ssr-client-manifest.json');
 
-  const renderer = createRenderer(bundle, {
+  renderer = createRenderer(bundle, {
     template,
     clientManifest
   });
