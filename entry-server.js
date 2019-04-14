@@ -4,6 +4,12 @@ export default context => {
   return new Promise((resolve, reject) => {
     const { app, router, store } = createApp();
 
+    const { url } = context;
+    const { fullPath } = router.resolve(url).route;
+    if (fullPath !== url) {
+      return reject({ url: fullPath });
+    }
+
     // 这里不是很懂。。。
     router.push(context.url);
 

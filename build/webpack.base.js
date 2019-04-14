@@ -15,6 +15,11 @@ module.exports = {
       'static': resolve('static')
     }
   },
+  output: {
+    path: resolve('dist'),
+    publicPath: '/dist/',
+    filename: '[name].[chunkhash].js'
+  },
   module: {
     noParse: /es6-promise\.js$/, // avoid webpack shimming process
     rules: [
@@ -46,7 +51,12 @@ module.exports = {
           loader: "style-loader"
         }, {
           loader: "css-loader",
-          options: { minimize: true }
+          options: {
+            minimize: true,
+            importLoaders: 1
+          }
+        }, {
+          loader: "postcss-loader"
         }, {
           loader: "sass-loader"
         }]
