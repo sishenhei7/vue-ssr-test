@@ -48,15 +48,17 @@ module.exports = {
       {
         test: /\.scss$/,
         use: [{
-          loader: "style-loader"
+          loader: "vue-style-loader"
         }, {
-          loader: "css-loader",
+          loader: "css-loader?importLoaders=1",
+          options: {}
+        }, {
+          loader: "postcss-loader",
           options: {
-            minimize: true,
-            importLoaders: 1
+            plugins: () => [require('autoprefixer')({
+              browsers: ['Android >= 4.0', 'IOS >= 6.0', 'last 2 versions']
+            })],
           }
-        }, {
-          loader: "postcss-loader"
         }, {
           loader: "sass-loader"
         }]
