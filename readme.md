@@ -13,10 +13,10 @@
 目前项目已经能够正常运行了，方法如下：
 
 ```
-// 开发环境：
+// 开发环境, 已启用热更新(localhost:8080)
 npm run dev
 
-// 生产环境:
+// 生产环境(localhost:8080)
 npm run build
 npm start
 ```
